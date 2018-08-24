@@ -1,0 +1,140 @@
+<div class="container main-container">
+        <!--컨트롤러에서 @selected_user값이 nil로 -->
+        <!--넘어올 경우에는 else문으로 가서 매칭된 유저가 없다고 뜸-->
+        <% if !@selected_user.blank? %>
+        <!--매칭된 유저가 있다면 프로필을 보여줌!-->
+        <div class="matching_container">
+              <% @selected_user.each do |matching| %>
+              <div class="matching_result">
+                  <p class="result-list ">이름: <%=matching.name%></p>
+                  <p class="result-list ">나이: <%=matching.age%></p>
+                  <p class="result-list ">지역: <%=matching.address%></p>
+                  <p class="result-list ">취미: <%=matching.hobby%></p>
+                  <p class="result-list "></p>내가 원하는 연애의 모습: <%=matching.introduce%></p>
+                  <form action="<%=home_history_path%>" method="POST">
+                      <input type="hidden" name="form_authenticity_token" value="<%=form_authenticity_token%>" />
+                      <input type="hidden" name="matching" value="<%=matching.user_id%>"/>
+                      <input class="btn matching" type="submit" value="GET!" />
+                  </form>
+              </div>
+             <% end %>
+          </div>
+          <div class="caution">
+                ※ 주의사항 : 선택 후 상대방의 카톡 아이디가 공개됩니다.<br>
+                선택하고 나서는 다른 사람의 아이디를 볼 수 없으니 신중히 선택하시길 바랍니다. ※ 
+          </div>
+        <% else %>
+            <%= image_tag "OTL이미지.jpg", class: "no-matching-img" %>
+            <div class="no-matching">매칭된 유저가 없습니다...ㅠㅁㅠ</div>
+        <% end %>
+</div>
+
+<div class="modal">
+    <h1 class="kakaoID"></h1>
+    <span class="modal-button matching-idcopy">복사</span> <span class="modal-button modal-close">닫기</span>
+</div>
+<style>
+    .matching_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .matching_result {
+        margin: 15px 60px auto 60px;
+        padding: 80px;
+        text-align: center;
+        border: 3px solid lightpink;
+        border-radius: 50px;
+        width: 800px;
+        height: auto;
+    }
+    .modal{
+        position: absolute;
+        left: 30%;
+        top: 40%;
+        display: none;
+        width: 40%;
+        height: 20%;
+        background-color: #ffffff;
+        text-align: center;
+        border: 1px solid #000000;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        line-height: 40px;
+    }
+    .modal-button{
+        background-color: #FFE4C4;
+        color: #000;
+        width: 50px;
+        font-size: 15px;
+        padding: 10px;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .no-matching{
+        text-align: center;
+        margin-top: 65px;
+        font-size: 35px;
+    }
+    .no-matching-img{
+        display: block;
+        width: 300px;
+        height: auto;
+        margin: 0 auto;
+    }
+    #a {
+        margin-bottom: 120px;
+        text-align: center;
+    }
+    .matching {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    margin-top: 50px;
+    cursor: pointer;
+    }
+    
+    .caution {
+        margin-top: 50px;
+    }
+    .btn matching {
+        margin-top: 30px;
+    }
+
+</style>
+<script type="text/javascript">
+    /*for(let i = 0; i < selectBtn.length; i++){
+        selectBtn[i].addEventListener("click", function(){ // 선택 후 다른 버튼 삭제 구현하기
+           var kakaoID = this.dataset.kakao;
+           document.querySelector(".modal").style.display = "block";
+           document.querySelector(".kakaoID").innerHTML = kakaoID;
+           var selectBtn = document.getElementsByClassName("matching");
+           for(let j = 0; j < selectBtn.length; j++){
+               if( i != j){
+                selectBtn[j].style.display = "none";
+               }
+            }
+           }
+        );
+    }*/
+     
+    document.querySelector(".modal-close").addEventListener("click", function(){
+       document.querySelector(".modal").style.display = "none";
+    });
+    /*
+    document.querySelector(".matching-idcopy").addEventListener("click", function(){
+       var text = document.querySelector(".kakaoID").innerHTML;
+       var t = document.createElement("textarea");
+          document.body.appendChild(t);
+          t.value = text;
+          t.select();
+          document.execCommand('copy');
+          document.body.removeChild(t);
+       alert("복사되었습니다!"); // 클립보드에 복사하기
+    });*/
+</script>

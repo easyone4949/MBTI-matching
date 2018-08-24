@@ -1,0 +1,33 @@
+<!--매칭버튼-->
+<div class="container main-container">
+    <div class="row">
+        <div class="matchinghome col-md-6 col-md-offset-3">
+            <a href="/home/view_matHistory">
+                <button class="default-button" style="vertical-align:middle;">
+                    <span>매칭 상태 및 기록</span>
+                </button>
+            </a>
+            <a href="/home/my_profile/<%=current_user.id%>">    
+                <button class="default-button" style="vertical-align:middle">
+                    <span>My Profile</span>
+                </button>
+            </a>
+            <a href="/home/view_matching" action="/home/view_matching">
+                <button class="default-button" style="vertical-align:middle">
+                    <span>Mathcing GO!</span>
+                </button>
+            </a>
+            <a href="/users/sign_out" data-method="delete">
+                <button class="default-button" style="vertical-align:middle">
+                    <span>Log Out</span>
+                </button>
+            </a>        
+        </div>
+    </div>
+</div>
+
+<style>
+    .matchinghome {
+        margin: 0 auto;
+    }
+</style>

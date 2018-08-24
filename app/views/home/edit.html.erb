@@ -1,0 +1,19 @@
+
+
+<div class="a">
+    <h1>My Profile Edit </h1>
+    <div class= "b">
+    <form action="/home/update/<%@post.id%>" method="post">
+      <p class="tit">이름</p><input class="pr" name="name" value="<%=@post.name%>"/>
+      <p class="tit">나이</p><input class="pr" name="age" value="<%=@post.age%>"/>
+      <p class="tit">사는곳</p><input class="pr" name="address" value="<%=@post.address%>"/>
+      <p class="tit">취미</p><input class="pr" name="hobby" value="<%=@post.hobby%>"/>
+      <p class="tit">내가 원하는 연애의 모습</p><input class="pr" name="introduce" value="<%=@post.introduce %>"/>
+      <p class="tit">카톡 아이디<br></p><input class="pr" name="kakao_id" value="<%=@post.kakao_id %>"/>
+      <input type ="hidden" name="user_id" value="<%= current_user.id %>">
+      <input class="btn btn-outline-info btn-lg" style="display:block; margin: 70px auto 60px auto;" type="submit" id="editbut" value="Edit Complete"/>
+     </div>
+      
+      
+    </form>
+</div>

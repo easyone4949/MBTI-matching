@@ -1,0 +1,32 @@
+<div class="main-container">
+  <div class="input-wrapper">
+      <h1 style="display:inline;">ㄹㅇ</h1><h4 style="display:inline;"> - 레알만 본다</h4>
+  </div>
+    <!--wrapper_html,input_html,label_html-->
+  <div class="input-wrapper">
+    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), :html=> { class: 'signup-form' }) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, required: false, placeholder: "아이디", autofocus: true, :wrapper_html => { :class => 'input-row' } %>  
+        <%= f.input :password, required: false, placeholder: "비밀번호", :wrapper_html => { :class => 'input-row' } %>  
+        <%= f.input :remember_me, :wrapper_html => { :id => 'input-row-small' }, :label_html => { :id => 'remember-label' }, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="input-wrapper">
+        <button class="default-button" type="submit" style="vertical-align:middle">
+          <span>Log in </span>
+        </button>
+      </div>
+    <% end %>
+  </div>
+  
+  <div class="input-wrapper">
+      <div class="input-row">
+        <%= render "devise/shared/links" %>    
+      </div>
+  </div>
+</div>
+
+
+<style>
+
+</style>

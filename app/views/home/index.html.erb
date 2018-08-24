@@ -1,0 +1,49 @@
+<!--<h1>MBTIng 소개팅</h1>-->
+<!--<p>앱 소개하는 곳</p>-->
+<!--<p> https://m-hackathon-cloned-easyone.c9users.io </p>-->
+<!--첫화면은 사람들사진,스크롤내리면 mbti설명,이용방법,회원가입(mbti)링크-->
+
+<style>
+.cover-img-content{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);                                                                 
+    z-index:1;
+}
+    /*.cover-img .content{*/
+    /* position: absolute;*/
+    /* top:140%;*/
+    /* left:50%;*/
+    /* transform: translate(-50%, -50%);                                                                   */
+    /* font-size:3rem;*/
+    /* color: black;*/
+    /* z-index: 2;*/
+    /* text-align: center;*/
+</style>
+
+<div id="mainimg"><img src="<%=asset_path "remain.png" %>" style="width:100%; height:100%"></div>
+
+        <div class="" style="text-align:center;">
+        <% if user_signed_in? %>
+                <a href="/home/view_matchingHome" data-method="get">
+                    <button class="default-button" style="width:400px">
+                        <span>Matching Go!</span>
+                    </button>
+                </a>
+        <% else%>
+                <a href="/users/sign_up" data-method="get">
+                    <button class="default-button"  style="width:400px">
+                        <span>Sign Up go!</span>
+                    </button>
+                </a>
+        <% end %>
+        </div>
+
+       
+
+<script>
+    function goUrl(){
+        location.href="/users/sign_up";
+    }
+</script>

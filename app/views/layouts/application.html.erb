@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> ㄹㅇ연애 </title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+  <!-- 폰트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+  <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Yeon+Sung" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">  
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Song+Myung" rel="stylesheet">
+  <!-- 폰트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  
+  <ul class="navbar-c">
+    <% if user_signed_in? %>
+      <li class="navbar--home"><a href="https://hackathon-easyone.c9users.io"><img src="<%= asset_path 'rea.png'%>" /></a></li>
+      <li class="navbar--logout navbar--common"><a href="/users/sign_out" data-method="delete"> 로그아웃 </a></li>
+      <li class="navbar--match navbar--common "><a href="https://hackathon-easyone.c9users.io/home/view_matchingHome">매칭하러 가기</a></li>   
+              
+    <% else %>
+      <li class="navbar--home"><a href="https://hackathon-easyone.c9users.io"><img src="<%= asset_path 'rea.png'%>" /></a></li>
+      <li class="navbar--signup navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_up">회원가입</a></li>
+      <li class="navbar--login navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_in" >로그인</a></li>
+    <% end %>
+  </ul>
+
+<%= yield %>
+
+</body>
+</html>
+
+<style>
+img {
+  /*운데 정렬 */
+   width: 40px; /* 넓이를 지정 */
+   height:40px; 
+  /* 높이를 지정 */
+ /* 여백을 적용 4가지 조건이 가능 위쪽, 오른쪽, 아래쪽, 왼쪽 순서 */
+}
+
+
+
+</style>

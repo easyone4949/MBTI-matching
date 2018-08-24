@@ -1,0 +1,11 @@
+<h1>매칭 목록</h1>
+    <% @histories.each do |h| %>
+        <div class="btoc">
+        <p>이름</p><p class="prtoc"><%=h.name%></p>
+        <p>나이</p><p class="prtoc"><%=h.age%></p>
+        <p>사는곳</p><p class="prtoc"><%=h.address%></p>
+        <p>취미</p><p class="prtoc"><%=h.hobby%></p>
+        <p>원하는 연애의 모습</p><p class="prtoc"><%=h.introduce%></p>
+        <p>카톡아이디</p><p class="prtoc"><%=h.kakao_id%></p>
+        </div>
+    <% end %>
