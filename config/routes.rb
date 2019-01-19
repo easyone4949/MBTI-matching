@@ -23,8 +23,6 @@ Rails.application.routes.draw do
 
   post 'home/update'
   get 'home/delete'
-  
-  get 'home/new'
 
   get 'home/view_matching'
   
