@@ -1,40 +1,53 @@
-<div class="main-container">
+<div class="container mt-4">
     
-    <div class="input-wrapper">
-        <h1>회원가입</h1>        
-    </div>
-    
-    <div class="input-wrapper">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> { class: 'signup-form' }) do |f| %>
-        <div class="form-inputs">
-        <%= f.error_notification %>
-        <%= f.input :email, required: true, autofocus: true, :wrapper_html => { :class => 'input-row' } %>
-        <%= f.input :password, required: true, :wrapper_html => { :class => 'input-row' } ,hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-        <%= f.input :password_confirmation, required: true, :wrapper_html => { :class => 'input-row' } %>
-        <%= f.label :sex %>
-        <%= f.label :sex, "여자", :value => "true"  %>
-        <%= f.radio_button :sex, true %>
-        <%= f.label :sex, "남자", :value => "false" %>
-        <%= f.radio_button :sex, false, :checked => true %>
-        
-        <h2> MBTI 검사 결과 </h2>
-        <%= f.label :m, "M : "%> E <%= f.radio_button :m, "e", checked: true  %> I <%= f.radio_button :m, "i", required: true %><br />
-        <%= f.label :b, "B : "%> S <%= f.radio_button :b, "s", checked: true  %> N <%= f.radio_button :b, "n", required: true %><br />
-        <%= f.label :t, "T : "%> T <%= f.radio_button :t, "t", checked: true  %> F <%= f.radio_button :t, "f", required: true %><br />
-        <%= f.label :i, "I : "%> J <%= f.radio_button :i, "j", checked: true  %> P <%= f.radio_button :i, "p", required: true %><br />
-        <a href='https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC' target="_blank">자신의 MBTI알아보기</a>
-        <div class="form-actions">
-            <button class="default-button" type="submit" style="vertical-align:middle">
-                <span>Sign Up</span>
-            </button>
+    <div class="input-container">
+        <div class="input-wrapper">
+            <h1 class="text-center">회원가입</h1>        
         </div>
+    
+        <div class="input-wrapper">
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html=> { class: 'signup-form' }) do |f| %>
+            <div class="form-inputs">
+                <%= f.error_notification %>
+                <%= f.input :email, required: true, autofocus: true, :wrapper_html => { :class => 'input-row' } %>
+                <%= f.input :password, required: true, :wrapper_html => { :class => 'input-row' }, :input_html => { :placeholder => "최소 6자리 이상" } %>
+                <%= f.input :password_confirmation, required: true, :wrapper_html => { :class => 'input-row' } %>
+                <%= f.label :sex, class: "mt-2" %>
+                <%= f.label :sex, "여자", :value => "true"  %>
+                <%= f.radio_button :sex, true %>
+                <%= f.label :sex, "남자", :value => "false" %>
+                <%= f.radio_button :sex, false, :checked => true %>
+                
+                <h2 class="text-center mt-4 mb-4"> MBTI 검사 결과 </h2>
+                
+                <div class="text-center">
+                    <%= f.label :m, "M : "%> E <%= f.radio_button :m, "e", checked: true  %> I <%= f.radio_button :m, "i", required: true %><br />
+                    <%= f.label :b, "B : "%> S <%= f.radio_button :b, "s", checked: true  %> N <%= f.radio_button :b, "n", required: true %><br />
+                    <%= f.label :t, "T : "%> T <%= f.radio_button :t, "t", checked: true  %> F <%= f.radio_button :t, "f", required: true %><br />
+                    <%= f.label :i, "I : "%> J <%= f.radio_button :i, "j", checked: true  %> P <%= f.radio_button :i, "p", required: true %><br />
+                </div>
+                <div class="text-center mt-2">
+                    <a href='https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC' target="_blank">자신의 MBTI 알아보기</a>
+                </div>
+                <div class="form-actions mt-4">
+                    <button class="default-button" type="submit" style="vertical-align:middle">
+                        <span>Sign Up</span>
+                    </button>
+                </div>
         <% end %>
+            </div>
+      </div>
+        
+        
+        <div class="input-wrapper mb-4">
+            <%= render "devise/shared/links" %>    
         </div>
-  </div>
-    
-    
-    <div class="input-wrapper">
-        <%= render "devise/shared/links" %>    
     </div>
     
 </div>
+
+<style>
+    .result {
+        margin-top: 15px;
+    }
+</style>

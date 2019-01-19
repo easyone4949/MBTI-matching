@@ -22,24 +22,27 @@
     /* text-align: center;*/
 </style>
 
-<div id="mainimg"><img src="<%=asset_path "remain.png" %>" style="width:100%; height:100%"></div>
+<div class="container mt-4">
 
-        <div class="" style="text-align:center;">
+<div id="mainimg mb-4"><img src="<%=asset_path "remain.png" %>" style="width:100%; height:100%"></div>
+
+        <div class="mb-4 mt-4" style="text-align:center;">
         <% if user_signed_in? %>
                 <a href="/home/view_matchingHome" data-method="get">
-                    <button class="default-button" style="width:400px">
+                    <button class="default-button" style="max-width:700px">
                         <span>Matching Go!</span>
                     </button>
                 </a>
         <% else%>
                 <a href="/users/sign_up" data-method="get">
-                    <button class="default-button"  style="width:400px">
+                    <button class="default-button" style="max-width:700px">
                         <span>Sign Up go!</span>
                     </button>
                 </a>
         <% end %>
         </div>
 
+</div>
        
 
 <script>

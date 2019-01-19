@@ -65,6 +65,7 @@ class HomeController < ApplicationController
     matched = User.where(id: History.select(:matnum).where(user_id_id: current_user.id))
     #나와 매칭된 유저
     @selected_user = nil
+    @matching_rank = nil
     search_sex = current_user.sex == "true" ? "false" : "true"
     
     #  3순위 search
@@ -82,16 +83,15 @@ class HomeController < ApplicationController
     second_i = @third
     second_i = second_i.where(i: search_i)
     @second = second_m + second_i
+    @second = @second & @second
+    
     # 1순위
     @first = @third
     @first = @first.where(m: search_m, i: search_i)
     
     @first = @first.select {|elt| !matched.include? elt}
     @second = @second.select {|elt| !@first.include? elt}
-    #@third = @third.select {|elt| !@second.include? elt}
-    @first = @first.sample(2)
-    @second = @second.sample(2)
-    #@third = @third.sample(2)
+    @third = @third.select {|elt| !@second.include? elt}
     
     if !@first.blank?
       @first_post = []
@@ -102,6 +102,7 @@ class HomeController < ApplicationController
         end
         @first_post << temp
       end
+      @first_post = @first_post.sample(2)
       @selected_user = @first_post
     end  
     if !@second.blank? && @selected_user.blank?
@@ -113,19 +114,21 @@ class HomeController < ApplicationController
         end
         @second_post << temp
       end
+      @second_post = @second_post.sample(2)
       @selected_user = @second_post
     end
-    # if !@third.blank? && @selected_user.blank?
-    #   @third_post = []
-    #   @third.each do |matching|
-    #     temp = Post.find_by(user_id: matching.id)
-    #     if temp.nil?
-    #       next
-    #     end
-    #     @third_post << temp
-    #   end
-    #   @selected_user = @third_post
-    # end
+    if !@third.blank? && @selected_user.blank?
+      @third_post = []
+      @third.each do |matching|
+        temp = Post.find_by(user_id: matching.id)
+        if temp.nil?
+          next
+        end
+        @third_post << temp
+      end
+      @third_post = @third_post.sample(2)
+      @selected_user = @third_post
+    end
   end
   
   def history

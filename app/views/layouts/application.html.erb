@@ -6,6 +6,8 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  
   <!-- 폰트ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ-->
   <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css?family=Yeon+Sung" rel="stylesheet"> 
@@ -22,17 +24,17 @@
 </head>
 <body>
   
-  <ul class="navbar-c">
+  <ul class="navbar-c container d-flex justify-content-between align-items-center">
+    <li class="navbar--home"><a href="https://hackathon-easyone.c9users.io"><img src="<%= asset_path 'rea.png'%>" /></a></li>
+    <div class="d-flex">
     <% if user_signed_in? %>
-      <li class="navbar--home"><a href="https://hackathon-easyone.c9users.io"><img src="<%= asset_path 'rea.png'%>" /></a></li>
-      <li class="navbar--logout navbar--common"><a href="/users/sign_out" data-method="delete"> 로그아웃 </a></li>
-      <li class="navbar--match navbar--common "><a href="https://hackathon-easyone.c9users.io/home/view_matchingHome">매칭하러 가기</a></li>   
-              
+      <li class="navbar--common"><a href="/users/sign_out" data-method="delete"> 로그아웃 </a></li>
+      <li class="navbar--common "><a href="https://hackathon-easyone.c9users.io/home/view_matchingHome">매칭하러 가기</a></li>   
     <% else %>
-      <li class="navbar--home"><a href="https://hackathon-easyone.c9users.io"><img src="<%= asset_path 'rea.png'%>" /></a></li>
-      <li class="navbar--signup navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_up">회원가입</a></li>
-      <li class="navbar--login navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_in" >로그인</a></li>
+      <li class="navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_up">회원가입</a></li>
+      <li class="navbar--common"><a href="https://hackathon-easyone.c9users.io/users/sign_in" >로그인</a></li>
     <% end %>
+    </div>
   </ul>
 
 <%= yield %>

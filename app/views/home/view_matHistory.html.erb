@@ -1,4 +1,7 @@
-<h1>매칭 목록</h1>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1>매칭 목록</h1>
+    </div>
     <% @histories.each do |h| %>
         <div class="btoc">
         <p>이름</p><p class="prtoc"><%=h.name%></p>
@@ -9,3 +12,4 @@
         <p>카톡아이디</p><p class="prtoc"><%=h.kakao_id%></p>
         </div>
     <% end %>
+</div>

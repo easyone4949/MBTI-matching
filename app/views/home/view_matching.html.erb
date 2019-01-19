@@ -1,4 +1,4 @@
-<div class="container main-container">
+<div class="container mt-5">
         <!--컨트롤러에서 @selected_user값이 nil로 -->
         <!--넘어올 경우에는 else문으로 가서 매칭된 유저가 없다고 뜸-->
         <% if !@selected_user.blank? %>
@@ -19,7 +19,7 @@
               </div>
              <% end %>
           </div>
-          <div class="caution">
+          <div class="caution mb-4">
                 ※ 주의사항 : 선택 후 상대방의 카톡 아이디가 공개됩니다.<br>
                 선택하고 나서는 다른 사람의 아이디를 볼 수 없으니 신중히 선택하시길 바랍니다. ※ 
           </div>
@@ -35,17 +35,16 @@
 </div>
 <style>
     .matching_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        max-width: 500px;
+        margin: 0 auto;
     }
     .matching_result {
-        margin: 15px 60px auto 60px;
-        padding: 80px;
+        margin: 20px 0px;
+        padding: 40px;
         text-align: center;
         border: 3px solid lightpink;
         border-radius: 50px;
-        width: 800px;
+        max-width: 500px;
         height: auto;
     }
     .modal{
@@ -66,7 +65,7 @@
         color: #000;
         width: 50px;
         font-size: 15px;
-        padding: 10px;
+        padding: 15px;
         margin-top: 10px;
         cursor: pointer;
     }
@@ -95,7 +94,7 @@
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    margin-top: 50px;
+    margin-top: 20px;
     cursor: pointer;
     }
     
@@ -103,7 +102,7 @@
         margin-top: 50px;
     }
     .btn matching {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
 </style>

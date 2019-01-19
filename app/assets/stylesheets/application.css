@@ -87,7 +87,7 @@ body {
         text-align: center;
         border: 6px solid powderblue;
         border-radius: 25px;
-        width: 500px;
+        max-width: 500px;
         min-height: 680px;
         margin-top: 20px;
         box-sizing: border-box;
@@ -98,7 +98,7 @@ body {
         text-align: center;
         border: 6px solid lightpink;
         border-radius: 25px;
-        width: 500px;
+        max-width: 500px;
         min-height: 680px;
         margin-top: 20px;
         box-sizing: border-box;
@@ -132,10 +132,12 @@ body {
 
 .navbar-c {
   background: white;
-  margin: 0; 
+  margin: 0;
+
+  margin-top: 20px; margin-top: 10px;
   padding: 0;
   list-style: none;
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
   width: 100%;
   font-size: 1rem;
@@ -172,7 +174,7 @@ body {
 
 .navbar--common > a {
   text-decoration: none;
-  padding: 12px 20px;
+  padding: 10px 15px;
   color: darkgrey;
 }
 
@@ -198,12 +200,20 @@ body {
 }
 
 /*session/new.html.erb css*/
+.login-container{
+  max-width:500px;
+  margin:0 auto;
+}
+
+.input-container{
+  max-width:500px;
+  margin:0 auto;
+}
 .signup-form{
-  display:inline-block;
+  display:block;
 }
 
 .input-wrapper{
-  text-align:center;
   width:100%;
 }
 
@@ -214,7 +224,7 @@ body {
 }
 
 .form-inputs{
-  width:550px;
+  width:100%;
 }
 
 .input-row{
